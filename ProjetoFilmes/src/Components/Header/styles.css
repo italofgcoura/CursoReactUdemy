@@ -1,0 +1,29 @@
+.titulo {
+    background-color: #8f9103;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    
+    
+}
+
+.titulo a{
+    text-decoration: none;
+    color: white;
+}
+
+.links{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links>a:nth-child(2){
+    font-size: 12px;
+}
