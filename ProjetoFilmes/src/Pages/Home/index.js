@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {Titulo} from '../../styles'
 import './styles.scss';
 class Home extends Component {
 
@@ -40,7 +41,7 @@ class Home extends Component {
                 {this.state.filmes.map((filme) => {
                     return (
                         <div className="filme" key={filme.id}>
-                            <h2>{filme.nome}</h2>
+                            <Titulo cor="ffffff">{filme.nome}</Titulo>
                             <img src={filme.foto} alt={filme.nome} />
                             <Link to={`/filme/${filme.id}`}>Acessar</Link>
                         </div>

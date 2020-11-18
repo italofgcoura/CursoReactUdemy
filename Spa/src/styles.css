@@ -1,0 +1,39 @@
+header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #458625;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+}
+
+.menu{
+    display: flex;
+}
+
+nav>ul {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: uppercase;
+    list-style: none;
+    cursor: pointer;
+
+}
+
+li>a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+.inicio, .sobre, .contato{
+    padding-top: 50px;
+    width: 100%;
+    height: 100vh;
+}
