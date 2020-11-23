@@ -1,0 +1,43 @@
+#dashboard {
+    width: 100%;
+    max-width: 680px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .deslogar {
+        background-color: #f32357;
+    }
+}
+
+.deslogar,
+.novoPost {
+    width: 140px;
+    height: 44px;
+    margin: 0px 15px;
+    text-decoration: none;
+    font-size: 14px;
+
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0px;
+    display: flex;
+    align-items: center;
+
+    .novoPost {
+        background-color: #444a9b;
+    }
+}

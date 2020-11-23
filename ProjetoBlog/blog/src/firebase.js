@@ -37,6 +37,11 @@ class Firebase {
         })
     }
 
+    logout() {
+        return app.auth().signOut();
+    }
+
+
     isInitialized() {
         return new Promise(resolve => {
             app.auth().onAuthStateChanged(resolve);
@@ -44,7 +49,7 @@ class Firebase {
     }
 
     getCurrent() {
-        return app.auth().currentUser && app.auth().currentUser.email
+        return app.auth().currentUser && app.auth().currentUser.email;
     }
 
     async getUserName(callback) {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import firebase from '../../firebase';
+import './dashboard.scss';
+
 class Dashboard extends Component {
 
     constructor(props) {
@@ -9,9 +11,18 @@ class Dashboard extends Component {
         this.state = {
             nome: localStorage.nome
         }
+
+        this.logout = this.logout.bind(this);
     }
 
-    logout() { }
+    logout = async () => {
+        await firebase.logout()
+            .catch((error) => {
+                console.log(error)
+            })
+        localStorage.removeItem("nome");
+        this.props.history.push('/');
+    }
 
     async componentDidMount() {
 
@@ -32,10 +43,10 @@ class Dashboard extends Component {
             <div id="dashboard">
                 <div className="userInfo">
                     <h1>Olá, {this.state.nome}</h1>
-                    <Link to='/dashboard/new'>Novo Post</Link>
+                    <Link className="novoPost"to='/dashboard/new'>Novo Post</Link>
                 </div>
-                <p>Logado com: email@gmail.com</p>
-                <button onClick={this.logout}>DESLOGAR</button>
+                <p>Logado com: {firebase.getCurrent()}</p>
+                <button className="deslogar" onClick={this.logout}>DESLOGAR</button>
             </div>
         )
     }
