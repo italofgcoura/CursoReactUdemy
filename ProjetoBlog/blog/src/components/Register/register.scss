@@ -1,0 +1,31 @@
+#formRegister {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 680px;
+    margin: 25px auto 0;
+    border: 1px solid #555;
+    padding: 15px;
+
+    input {
+        border: none;
+        height: 30px;
+        padding: 10px;
+    }
+
+    button {
+        height: 44px;
+        margin: 15px 0px;
+        border: none;
+        background-color: #555;
+        color: #fff;
+        text-transform: uppercase;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(27, 70, 2);
+            color: #fff;
+        }
+    }
+}

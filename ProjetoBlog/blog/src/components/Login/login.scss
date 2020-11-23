@@ -1,0 +1,31 @@
+#formEntrar {
+    width: 100%;
+    max-width: 680px;
+    margin: 30px auto 0;
+    padding: 30px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    input {
+        margin-bottom: 15px;
+        height: 40px;
+        border: 1px solid #000000;
+        padding: 5px;
+    }
+
+    button {
+        border: none;
+        height: 44px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+        background-color: #333;
+        color: #fff;
+
+        &:hover {
+            background-color: rgb(7, 68, 22);
+        }
+    }
+
+}

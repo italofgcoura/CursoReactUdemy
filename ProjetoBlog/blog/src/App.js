@@ -4,7 +4,9 @@ import Home from './components/Home';
 import Erro from './components/Erro';
 import Header from './components/Header';
 import firebase from './firebase';
-
+import Login from './components/Login';
+import Dashboard from './components/Dashboard'
+import Register from './components/Register'
 import './styleGlobal.scss';
 
 class App extends Component {
@@ -28,6 +30,9 @@ class App extends Component {
         <Switch>
 
           <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/register" component={Register} />
 
           <Route path="*" component={Erro} />
 

@@ -1,0 +1,37 @@
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section {
+    width: 100%;
+    margin: 25px auto;
+
+    article {
+        margin: 25px 0px;
+        padding: 25px;
+        width: 100%;
+        max-width: 830px;
+        box-shadow: 0px 0px 8px #000000;
+
+        header {
+            color: #333333;
+            font-size: 24px;
+           
+        }
+
+        img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            object-position: center;
+            margin: 15px;
+        }
+        p{
+            font-size: 16px;
+            text-align: justify;
+        }
+    }
+}
