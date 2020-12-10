@@ -17,6 +17,7 @@ class Home extends Component {
 
             snapshot.forEach((post) => {
                 state.posts.push({
+
                     key: post.key,
                     titulo: post.val().titulo,
                     image: post.val().imagem,
@@ -25,9 +26,10 @@ class Home extends Component {
                 });
 
             })
-            this.setState(state);
 
-            console.log(this.state.posts)
+            state.posts.reverse();
+
+            this.setState(state);
 
         })
     }

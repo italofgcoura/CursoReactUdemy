@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/database';
 import 'firebase/auth';
+import 'firebase/storage';
 
 let firebaseConfig = {
     apiKey: "AIzaSyCokCxRoA4b1EHL2ynZrpva6dqDzuuh1P8",
@@ -20,7 +21,9 @@ class Firebase {
         // Initialize Firebase
         app.initializeApp(firebaseConfig);
 
+        //referenciando a database para acesso de outros locais
         this.app = app.database();
+        this.storage = app.storage();
     }
 
     login(email, password) {
@@ -62,6 +65,10 @@ class Firebase {
 
         await app.database().ref('users').child(uid).once('value').then(callback);
 
+    }
+
+    getCurrentUid() {
+        return app.auth().currentUser && app.auth().currentUser.uid;
     }
 
 }
