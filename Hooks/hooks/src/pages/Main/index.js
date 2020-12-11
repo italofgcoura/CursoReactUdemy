@@ -46,7 +46,7 @@ export default function Main() {
             setAlert(null);
             try {
 
-                if (newRepo == '') {
+                if (newRepo === '') {
                     throw new Error('Você precisa indicar um repositório.');
                 }
 
@@ -81,8 +81,6 @@ export default function Main() {
         }
 
         submit();
-
-        console.log(repositorios);
 
     }, [repositorios, newRepo])
 
