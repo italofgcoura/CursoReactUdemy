@@ -11,7 +11,8 @@ class Register extends Component {
         this.state = {
             email: '',
             password: '',
-            nome: ''
+            nome: '',
+            categoria: []
         }
 
         this.register = this.register.bind(this);
@@ -27,14 +28,24 @@ class Register extends Component {
 
         try {
 
-            const { nome, email, password } = this.state;
+            const { nome, email, password, categoria } = this.state;
 
-            firebase.register(nome, email, password);
+            firebase.register(nome, email, password, categoria);
             this.props.history.replace('./dashboard');
         }
 
         catch (error) {
             alert(error.message)
+        }
+
+    }
+
+    handleOption(e) {
+
+        if (e.target.checked) {
+
+            this.setState({ categoria: [...this.state.categoria, e.target.value] })
+
         }
 
     }
@@ -50,6 +61,17 @@ class Register extends Component {
                     <input type="email" autoComplete="off" placeholder="teste@gmail.com" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }}></input><br />
                     <label>Password</label><br />
                     <input type="password" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }}></input>
+                    <div>
+
+                        <label>Categoria1</label>
+
+                        <input type="checkbox" placeholder="Opção1" value={"Almoço"} onChange={(e) => { this.handleOption(e) }} />
+
+                        <label>Categoria2</label>
+
+                        <input type="checkbox" placeholder="Opção2" value={"Café da Manhã"} onChange={(e) => { this.handleOption(e) }} />
+
+                    </div>
                     <button type="submit">Registrar</button>
                 </form>
             </div >

@@ -30,13 +30,14 @@ class Firebase {
         return app.auth().signInWithEmailAndPassword(email, password);
     }
 
-    async register(name, email, password) {
+    async register(name, email, password, categoria) {
         await app.auth().createUserWithEmailAndPassword(email, password);
 
         const uid = app.auth().currentUser.uid;
 
         return app.database().ref('users').child(uid).set({
-            name: name
+            name: name,
+            categorie: categoria
         })
     }
 

@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import firebase from '../../firebase'
-
+import { Title, Input } from './style'
 import './home.scss';
 
 class Home extends Component {
 
     state = {
-        posts: []
+        posts: [],
+        restaurantes: [],
+        userNome: localStorage.nome
     }
 
     componentDidMount() {
-        firebase.app.ref('posts').once('value', (snapshot) => {
+
+        firebase.app.ref('users').once('value', (snapshot) => {
+
             let state = this.state;
 
             state.posts = [];
@@ -32,12 +36,27 @@ class Home extends Component {
             this.setState(state);
 
         })
+
+
+        fetch("http://localhost:1337/restaurants/")
+            .then(response => response.json())
+
+            .then(data => data.forEach((restaurant) => {
+
+                this.state.restaurantes.push({
+                    nome: restaurant.name,
+                    descricao: restaurant.description,
+                    categoria: restaurant.categories
+
+                })
+            }))
     }
+
 
     render() {
         return (
             <section className="flex">
-                {this.state.posts.map((post) => {
+                {/* {this.state.posts.map((post) => {
                     return (
                         <article key={post.key} className="flex">
                             <header>
@@ -50,8 +69,34 @@ class Home extends Component {
                             <p>{post.descricao}</p>
                         </article>
                     )
-                })}
-            </section>
+                })} */}
+                <Input></Input>
+                {
+                    this.state.restaurantes.map((restaurante) => {
+                        return (
+
+                            <div key={restaurante.nome}>
+                                < div className="content">
+                                    <Title>{restaurante.nome}</Title>
+                                    <h2>{restaurante.descricao}</h2>
+                                    {restaurante.categoria.map((cat) => {
+                                        return (
+                                            <span key={cat.id}>
+                                                {cat.name}
+                                            </span>
+                                        )
+                                    })}
+                                    {this.state.userNome ?
+                                        <p>{this.state.userNome}</p>
+                                        :
+                                        <p>No user logged</p>
+                                    }
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+            </section >
         )
     }
 }
